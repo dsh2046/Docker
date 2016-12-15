@@ -1,0 +1,46 @@
+https://hub.docker.com/r/sameersbn/postgresql/
+
+*****Database Setup*****
+
+#PostgreSQL
+sudo docker run --name postgresql -itd --restart always --publish 5432:5432 --volume /srv/docker/postgresql:/var/lib/postgresql sameersbn/postgresql:9.4-23
+#postgressql containter:
+sudo docker exec -it postgresql bash
+#su postgres
+
+#postgress database
+sudo -u postgres psql  //进入postgreSQL操作
+
+#MySQL
+sudo docker pull mysql //下载mysql到本地
+sudo docker run --name db001 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mytest -d mysql:5.7 //运行mysql的image,
+sudo docker exec -it db001 bash //执行mysql
+mysql -hlocalhost -uroot -p //进入mysql操作 （create database db1; show tables;......）
+============================
+
+***** PHP Container *****
+
+https://hub.docker.com/r/eboraas/apache-php/ 
+start php webserver
+
+first time:
+1. sudo docker run -p 80:80 -v /本地php文件路径/:/var/www/html -d eboraas/apache-php   //下载php container到本地
+2. sudo docker commit <commit id> phpdocker                                        //Copy一份image到本地保存命名为phpdocker
+3. sudo docker kill <commit id>                                                    //把原生php container进程杀掉
+4. sudo docker run -p 80:80 -v /本地php文件路径/:/var/www/html/ -d phpdocker         //运行本地php container 
+//默认地址localhost:80, 更改80:80为81:80, 端口变为localhost:81
+
+#sudo docker run -p 80:80 -p 443:443 -v /samba/fileshare/web/:/var/www/html/ -d eboraas/apache-php
+
+
+*****go to PHP container*****   //进入PHP Container安装php5-pgsql插件
+
+apt-get update
+apt-get install php5-pgsql
+sudo docker commit <commit_id> phpdocker
+-------------------------------------------------------
+commands
+INSERT INTO jobs (name,product,os,build_info,start_time,end_time,status) VALUES('job2','denali','rancher','july21-build','2009/08/28 17:44:46.240','2009/08/28 17:44:46.240',0);
+INSERT INTO functional_testcase VALUES(3,'test3',0,'')
+SELECT * FROM jobs
+
