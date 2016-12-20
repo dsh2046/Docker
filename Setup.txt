@@ -12,7 +12,6 @@ sudo docker exec -it postgresql bash
 sudo -u postgres psql  //进入postgreSQL操作
 
 #MySQL
-sudo docker pull mysql //下载mysql到本地
 sudo docker run --name db001 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mytest -d mysql:5.7 //运行mysql的image,
 sudo docker exec -it db001 bash //执行mysql
 mysql -hlocalhost -uroot -p //进入mysql操作 （create database db1; show tables;......）
