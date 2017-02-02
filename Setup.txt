@@ -26,7 +26,7 @@ first time:
 1. sudo docker run -p 80:80 -v /本地php文件路径/:/var/www/html -d eboraas/apache-php   //下载php container到本地
 2. sudo docker commit <commit id> phpdocker                                        //Copy一份image到本地保存命名为phpdocker
 3. sudo docker kill <commit id>                                                    //把原生php container进程杀掉
-4. sudo docker run -p 80:80 -v /本地php文件路径/:/var/www/html/ -d phpdocker         //运行本地php container 
+4. sudo docker run -p 80:80 -v /home/samueldeng/samuel/:/var/www/html/ -d phpdocker         //运行本地php container 
 //默认地址localhost:80, 更改80:80为81:80, 端口变为localhost:81
 
 #sudo docker run -p 80:80 -p 443:443 -v /samba/fileshare/web/:/var/www/html/ -d eboraas/apache-php
