@@ -1,0 +1,19 @@
+1.从资源库拉取docker images, 这里取nginx
+docker pull nginx
+
+2.运行nginx，docker run会创建一个新的容器
+docker run --name webserver -d -p 90:80 nginx  ＃ --name指定container名字
+
+2.1 运行nginx并且进入bash进行交互操作:
+docker run -it --rm nginx bash   # --rm：这个参数是说容器退出后随之将其删除
+
+3.操作已存在的容器 docker exec
+docker exec -it webserver bash  # 进入bash进行交互操作
+docker exec -it webserver ls    # 列出文件
+
+4. Dockerfile
+FROM nginx
+RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
+
+位于Dockerfile目录下运行：
+docker build -t nginx .
