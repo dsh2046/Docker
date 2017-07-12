@@ -2,8 +2,9 @@ https://hub.docker.com/r/sameersbn/postgresql/
 
 *****Database Setup*****
 
-#PostgreSQL
-sudo docker run --name postgresql -itd --restart always --publish 5432:5432 --volume /srv/docker/postgresql:/var/lib/postgresql sameersbn/postgresql:9.4-23
+#PostgreSQL image
+sudo docker run --name postgresqldb -itd --restart always -p 5432:5432 postgres:latest
+
 #postgressql containter:
 sudo docker exec -it postgresql bash
 #su postgres
@@ -12,7 +13,7 @@ sudo docker exec -it postgresql bash
 sudo -u postgres psql  //进入postgreSQL操作
 
 #MySQL
-sudo docker run --name db001 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mytest -d mysql:5.7 //运行mysql的image,
+sudo docker run --name mysqldb -itd --restart always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=11111111 mysql:latest  //运行mysql的image,
 sudo docker exec -it db001 bash //执行mysql
 mysql -hlocalhost -uroot -p //进入mysql操作 （create database db1; show tables;......）
 ============================
