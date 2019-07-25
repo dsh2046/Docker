@@ -5,4 +5,4 @@
 3. Based on the image 'web', start it <br />
 `docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app web`
 
-<img height="50%" width="50%" src="https://i.ibb.co/Fn1xDCC/wxNwmO1.png" alt="wxNwmO1" border="0">
+
